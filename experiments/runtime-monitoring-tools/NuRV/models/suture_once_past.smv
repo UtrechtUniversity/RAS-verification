@@ -1,0 +1,7 @@
+MODULE main
+VAR
+  suturing : boolean;
+  gauze    : boolean;
+
+LTLSPEC
+  H ( suturing -> ( O(gauze) -> O( (!gauze) & O(gauze) ) ) )

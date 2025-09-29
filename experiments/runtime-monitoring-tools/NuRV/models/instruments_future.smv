@@ -1,0 +1,5 @@
+MODULE main
+VAR
+	inCameraView : boolean;
+LTLSPEC
+	G (inCameraView)

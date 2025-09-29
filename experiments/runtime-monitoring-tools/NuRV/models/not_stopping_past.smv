@@ -1,0 +1,123 @@
+MODULE main
+VAR
+  x : 0..640;
+  y : 0..480;
+  z : 0..480;
+  prev_x : 0..640;
+  prev_y : 0..480;
+  prev_z : 0..480;
+
+ASSIGN
+  init(prev_x) := x;
+  next(prev_x) := x;
+  init(prev_y) := y;
+  next(prev_y) := y;
+  init(prev_z) := z;
+  next(prev_z) := z;
+
+DEFINE
+  stopped := (x = prev_x) & (y = prev_y) & (z = prev_z);
+
+LTLSPEC
+  G ( ! (
+        stopped &
+        Y(stopped) &
+        Y(Y(stopped)) &
+        Y(Y(Y(stopped))) &
+        Y(Y(Y(Y(stopped)))) &
+        Y(Y(Y(Y(Y(stopped))))) &
+        Y(Y(Y(Y(Y(Y(stopped)))))) &
+        Y(Y(Y(Y(Y(Y(Y(stopped))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))) &
+        Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(Y(stopped)))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+      ) )
