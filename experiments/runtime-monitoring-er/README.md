@@ -161,7 +161,7 @@ A new logfile appears in `./logs/` with a header line documenting the columns.
 The client creates `./logs/rv_run_YYYYMMDD_HHMMSS.log` and writes one CSV‑style line per processed frame:
 ```
 step, [b0,b1,b2,b3], inCameraView, NuRVVerdict, delta_t_sec, fps
-
+```
 ---
 
 ## Acknowledgements
